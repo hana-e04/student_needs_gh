@@ -41,13 +41,29 @@ no_totals_df = load_in_df.iloc[:, 1:]
 x = range(len(all_num))
 y = no_totals_df['retail_total']/(sum(no_totals_df['retail_total'])/len(no_totals_df['retail_total']))
 y1 = no_totals_df['books_hobbies']/(sum(no_totals_df['books_hobbies'])/len(no_totals_df['books_hobbies']))
-y2 = no_totals_df['grocery']/(sum(no_totals_df['grocery'])/len(no_totals_df['grocery']))
-y3= no_totals_df['fuel']/(sum(no_totals_df['fuel'])/len(no_totals_df['fuel']))
-
+y2 = no_totals_df['alcohol']/(sum(no_totals_df['alcohol'])/len(no_totals_df['grocery']))
+y3= no_totals_df['clothes']/(sum(no_totals_df['clothes'])/len(no_totals_df['fuel']))
 
 plt.plot(x, y, label = "Retail")
 plt.plot(x, y1, label = "Books & Hobbies")
-plt.plot(x, y2, label = "Groceries")
+plt.plot(x, y2, label = "Alcohol")
+plt.plot(x, y3, label = "Clothes")
+plt.xlabel("Months")
+plt.xticks(range(1, len(all_num), 12), no_totals_df.year[::12])
+plt.ylabel("Total 2012 - 2022 Spending Change")
+plt.legend()
+plt.show()
+
+x = range(len(all_num))
+y = no_totals_df['appliances']/(sum(no_totals_df['appliances'])/len(no_totals_df['retail_total']))
+y1 = no_totals_df['books_hobbies']/(sum(no_totals_df['books_hobbies'])/len(no_totals_df['books_hobbies']))
+y2 = no_totals_df['hp_care']/(sum(no_totals_df['hp_care'])/len(no_totals_df['grocery']))
+y3= no_totals_df['fuel']/(sum(no_totals_df['fuel'])/len(no_totals_df['fuel']))
+
+
+plt.plot(x, y, label = "Appliances")
+plt.plot(x, y1, label = "Books & Hobbies")
+plt.plot(x, y2, label = "Health & Personal Care")
 plt.plot(x, y3, label = "Fuel")
 plt.xlabel("Months")
 plt.xticks(range(1, len(all_num), 12), no_totals_df.year[::12])
@@ -55,6 +71,8 @@ plt.ylabel("Total 2012 - 2022 Spending Change")
 plt.legend()
 plt.show()
 
+plt.boxplot([y, y1, y2, y3], labels = ["Appliances", "Books & Hobbies", "Health & Personal Care", "Fuel"])
+plt.show()
 
 monthly_df = no_totals_df.groupby('month').sum()
 xm = range(1, 13)
@@ -65,6 +83,9 @@ plt.xlabel("Months")
 plt.xticks(range(1,13))
 plt.ylabel("Total 2013-2022 Retail Spending Change in Thousands of Millions of $")
 plt.legend()
+plt.show()
+
+plt.boxplot(ym)
 plt.show()
 
 no_totals_df.columns
@@ -179,7 +200,7 @@ for col in feature_test_df.drop(columns="books_hobbies", axis=1).columns:
     model_errors['mse'].append(val_mse)
     model_errors['error'].append(errors)
 
-model_errors['col']
+model_errors['mse']
 
 # mean absolute error visualized
 plt.bar(model_errors['col'], model_errors['mae'])
