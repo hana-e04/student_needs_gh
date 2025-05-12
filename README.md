@@ -4,14 +4,17 @@
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-A regression and grouping of different student financial needs. 
+The model contains a regression and grouping of different student financial needs based on student and consumer spending data in the US. The regression and cluster models aim to predict how student spending on books, hobbies, and school supplies changes in order to ensure schools are able to respond by providing the resources students may need.
+
+## Impact
+The K Modes and Decision Tree models generated in this project can be used to help universities and organizations proactively plan programs and budgets to meet student needs and promote equitable learning environments.
 
 ## Data Pipeline
 The raw datasets are included in this repo, but the Student Monthly Spending dataset from Kaggle can be found here (https://www.kaggle.com/datasets/shariful07/nice-work-thanks-for-share) and the latest US Census Bureau data can be found here (https://www.census.gov/retail/marts/historic_releases.html).
 
 The Kaggle data can just be downloaded as a csv. However, the categorical data must be encoded as numerical values. Missing data was coded as 0, "No" as 1, and "Yes" as 2. 
 
-The US Census Bureau data must be downloaded as a xlsx file, converted to a csv file, and cleaned. The data pipeline for the Census Bureau data is in the market_data_cleaned jupyter notebook file. 
+The US Census Bureau data must be downloaded as a xlsx file, converted to a csv file, and cleaned. Data from each year from 2024 to the 1980s are held in separate Excel sheet tabs. Combine them into a single dataset to view aggregate market trends and to compare market trends by year. The data pipeline for the Census Bureau data is in the market_data_cleaned jupyter notebook file. 
 
 ## Models
 
