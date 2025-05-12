@@ -4,7 +4,20 @@
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-A regression and grouping of different student financial needs.
+A regression and grouping of different student financial needs. 
+
+## Data Pipeline
+The raw datasets are included in this repo, but the Student Monthly Spending dataset from Kaggle can be found here (https://www.kaggle.com/datasets/shariful07/nice-work-thanks-for-share) and the latest US Census Bureau data can be found here (https://www.census.gov/retail/marts/historic_releases.html).
+
+The Kaggle data can just be downloaded as a csv. However, the categorical data must be encoded as numerical values. Missing data was coded as 0, "No" as 1, and "Yes" as 2. 
+
+The US Census Bureau data must be downloaded as a xlsx file, converted to a csv file, and cleaned. The data pipeline for the Census Bureau data is in the market_data_cleaned jupyter notebook file. 
+
+## Models
+
+A K Modes model was used to predict the Student Monthly Spending dataset using the Kmodes package from the kmodes.kmodes module. Various k values were assessed for this model, and the mean values of each variable within the clusters were used to assess the clusters.
+
+A Decision Tree was used to model the US Census Bureau data. Then, the individual influence of each variable was determined by assessing the impact of their removal on the overall mean absolute error and mean standard error of the model. Using this analysis, a final predictive decision tree model was created to predict consumer spending on books and hobbies. 
 
 ## Project Organization
 

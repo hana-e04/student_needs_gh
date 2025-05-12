@@ -3,8 +3,9 @@ flake8
 ipython
 isort
 jupyterlab
+kmodes
 loguru
-matplotlib
+matplotlib.pyplot
 mkdocs
 notebook
 numpy
